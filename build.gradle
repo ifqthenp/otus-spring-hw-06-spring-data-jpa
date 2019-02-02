@@ -36,7 +36,7 @@ dependencies {
     implementation(
         'org.springframework.boot:spring-boot-starter-data-jpa',
         "org.springframework.shell:spring-shell-starter:${springShellVersion}",
-        'com.h2database:h2'
+        'mysql:mysql-connector-java'
     )
     compileOnly('org.projectlombok:lombok')
     testCompileOnly('org.projectlombok:lombok')

@@ -58,4 +58,24 @@ public class Book {
         comment.setBook(null);
     }
 
+    public void addGenre(final Genre genre) {
+        genres.add(genre);
+        genre.getBooks().add(this);
+    }
+
+    public void removeGenre(final Genre genre) {
+        genres.remove(genre);
+        genre.getBooks().remove(this);
+    }
+
+    public void addAuthor(final Author author) {
+        authors.add(author);
+        author.getBooks().add(this);
+    }
+
+    public void removeAuthor(final Author author) {
+        authors.remove(author);
+        author.getBooks().remove(this);
+    }
+
 }

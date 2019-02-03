@@ -38,3 +38,7 @@ Run the program:
 ```shell
 java -jar build/libs/otus-spring-hw-05-spring-jpa.jar
 ```
+
+### Useful Docker commands
+
+docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql

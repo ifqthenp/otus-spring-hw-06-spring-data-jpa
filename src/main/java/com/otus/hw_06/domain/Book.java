@@ -3,6 +3,8 @@ package com.otus.hw_06.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,10 +15,10 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final long id;
+    private long id;
 
     @Column(name = "title")
-    private final String title;
+    private String title;
 
     @ManyToMany(cascade = {
         CascadeType.PERSIST,
@@ -26,7 +28,7 @@ public class Book {
         joinColumns = @JoinColumn(name = "book_id"),
         inverseJoinColumns = @JoinColumn(name = "author_id")
     )
-    private final Set<Author> authors;
+    private final Set<Author> authors = new HashSet<>();
 
     @ManyToMany(cascade = {
         CascadeType.PERSIST,
@@ -36,17 +38,17 @@ public class Book {
         joinColumns = @JoinColumn(name = "book_id"),
         inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
-    private final Set<Genre> genres;
+    private final Set<Genre> genres = new HashSet<>();
 
     @Column(name = "written")
-    private final String year;
+    private String year;
 
     @OneToMany(
         mappedBy = "book",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private final List<Comment> comments;
+    private final List<Comment> comments = new ArrayList<>();
 
     public void addComment(final Comment comment) {
         comments.add(comment);

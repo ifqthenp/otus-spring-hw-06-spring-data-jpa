@@ -43,6 +43,7 @@ dependencies {
     annotationProcessor('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
     testImplementation(
+        'com.h2database:h2',
         "org.spockframework:spock-core:${spockVersion}",
         "org.spockframework:spock-spring:${spockVersion}",
         "org.codehaus.groovy:groovy-all:${groovyVersion}",

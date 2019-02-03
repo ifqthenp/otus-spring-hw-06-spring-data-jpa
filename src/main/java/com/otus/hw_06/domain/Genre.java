@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -20,6 +21,6 @@ public class Genre {
     private String genre;
 
     @ManyToMany(mappedBy = "genres")
-    private final Set<Book> books;
+    private final Set<Book> books = new HashSet<>();
 
 }

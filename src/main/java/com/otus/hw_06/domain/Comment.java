@@ -11,10 +11,10 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final long id;
+    private long id;
 
     @Column(name = "commentary")
-    private final String commentary;
+    private String commentary;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_book_id")

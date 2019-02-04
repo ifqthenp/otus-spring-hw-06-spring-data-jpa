@@ -53,8 +53,8 @@ CREATE TABLE `genres`
     UNIQUE KEY `UK_f5jr1xmplevnsodj7nhn12lp5` (`genre`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
-ALTER TABLE `book_author` ADD CONSTRAINT `FK91ierknt446aaqnjl4uxjyls3` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`);
-ALTER TABLE `book_author` ADD CONSTRAINT `FKro54jqpth9cqm1899dnuu9lqg` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`);
-ALTER TABLE `book_genre` ADD CONSTRAINT `FKnkh6m50njl8771p0ll3lylqp2` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`);
-ALTER TABLE `book_genre` ADD CONSTRAINT `FKq0f88ptislu8lv230mvgonssl` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`);
-ALTER TABLE `comments` ADD CONSTRAINT `FKj4uh6ap5rhoiandvo2dte065t` FOREIGN KEY (`fk_book_id`) REFERENCES `books` (`id`);
+ALTER TABLE `book_author` ADD CONSTRAINT `FK91ierknt446aaqnjl4uxjyls3` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE;
+ALTER TABLE `book_author` ADD CONSTRAINT `FKro54jqpth9cqm1899dnuu9lqg` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE CASCADE;
+ALTER TABLE `book_genre` ADD CONSTRAINT `FKnkh6m50njl8771p0ll3lylqp2` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`) ON DELETE CASCADE;
+ALTER TABLE `book_genre` ADD CONSTRAINT `FKq0f88ptislu8lv230mvgonssl` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE;
+ALTER TABLE `comments` ADD CONSTRAINT `FKj4uh6ap5rhoiandvo2dte065t` FOREIGN KEY (`fk_book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE;

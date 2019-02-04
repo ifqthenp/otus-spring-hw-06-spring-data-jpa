@@ -18,7 +18,7 @@ public class Genre {
 
     @NaturalId
     @Column(name = "genre")
-    private String genre;
+    private String genreName;
 
     @ManyToMany(mappedBy = "genres")
     private final Set<Book> books = new HashSet<>();

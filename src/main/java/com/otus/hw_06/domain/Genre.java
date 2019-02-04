@@ -27,4 +27,9 @@ public class Genre {
     @ManyToMany(mappedBy = "genres")
     private final Set<Book> books = new HashSet<>();
 
+//    @PreRemove
+//    public void removeBooks() {
+//        books.forEach(book -> book.removeGenre(this));
+//    }
+
 }

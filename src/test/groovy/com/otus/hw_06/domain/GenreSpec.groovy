@@ -12,7 +12,7 @@ class GenreSpec extends Specification {
         expect:
         with(genre) {
             id == 0
-            it.genre == null
+            genreName == null
             books != null
             books.getClass() == HashSet
         }

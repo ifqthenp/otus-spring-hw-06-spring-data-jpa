@@ -1,6 +1,8 @@
 package com.otus.hw_06.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -21,6 +23,8 @@ public class Author {
     @Column(name = "last_name")
     private String lastName;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToMany(mappedBy = "authors")
     private final Set<Book> books = new HashSet<>();
 

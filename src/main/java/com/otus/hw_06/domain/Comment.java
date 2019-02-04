@@ -1,6 +1,8 @@
 package com.otus.hw_06.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -16,6 +18,8 @@ public class Comment {
     @Column(name = "commentary")
     private String commentary;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_book_id")
     private Book book;

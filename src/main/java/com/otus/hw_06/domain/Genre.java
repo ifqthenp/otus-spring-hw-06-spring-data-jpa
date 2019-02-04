@@ -1,6 +1,8 @@
 package com.otus.hw_06.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -20,6 +22,8 @@ public class Genre {
     @Column(name = "genre")
     private String genreName;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToMany(mappedBy = "genres")
     private final Set<Book> books = new HashSet<>();
 

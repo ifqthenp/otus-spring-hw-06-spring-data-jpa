@@ -107,10 +107,9 @@ class GenreRepositorySpec extends Specification {
 
         and:
         genre.ifPresent({ genreRepo.delete(it) })
-        bookRepo.findByGenresContainingIgnoreCase(genre.get())
 
         expect:
-        bookRepo.findByGenresContainingIgnoreCase(genre.get()).isEmpty()
+        bookRepo.findBookByGenreName(genre.get().genreName).isEmpty()
         genreRepo.findByGenreNameContainingIgnoreCase(genreName).isEmpty()
     }
 

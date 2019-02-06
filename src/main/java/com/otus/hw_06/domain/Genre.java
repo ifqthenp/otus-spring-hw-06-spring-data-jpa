@@ -24,7 +24,7 @@ public class Genre {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToMany(mappedBy = "genres")
+    @ManyToMany(mappedBy = "genres", fetch = FetchType.LAZY)
     private final Set<Book> books = new HashSet<>();
 
 //    @PreRemove

@@ -20,20 +20,20 @@ public class Book {
     @Column(name = "title")
     private String title;
 
-    @ManyToMany(cascade = {
-        CascadeType.PERSIST,
-        CascadeType.MERGE
-    })
+    @ManyToMany(
+        fetch = FetchType.LAZY,
+        cascade = {CascadeType.PERSIST, CascadeType.MERGE}
+    )
     @JoinTable(name = "book_author",
         joinColumns = @JoinColumn(name = "book_id"),
         inverseJoinColumns = @JoinColumn(name = "author_id")
     )
     private final Set<Author> authors = new HashSet<>();
 
-    @ManyToMany(cascade = {
-        CascadeType.PERSIST,
-        CascadeType.MERGE
-    })
+    @ManyToMany(
+        fetch = FetchType.LAZY,
+        cascade = {CascadeType.PERSIST, CascadeType.MERGE}
+    )
     @JoinTable(name = "book_genre",
         joinColumns = @JoinColumn(name = "book_id"),
         inverseJoinColumns = @JoinColumn(name = "genre_id")
@@ -46,7 +46,8 @@ public class Book {
     @OneToMany(
         mappedBy = "book",
         cascade = CascadeType.ALL,
-        orphanRemoval = true
+        orphanRemoval = true,
+        fetch = FetchType.LAZY
     )
     private final List<Comment> comments = new ArrayList<>();
 

@@ -1,4 +1,10 @@
+DROP TABLE IF EXISTS `book_genre`;
+DROP TABLE IF EXISTS `book_author`;
+DROP TABLE IF EXISTS `comments`;
 DROP TABLE IF EXISTS `authors`;
+DROP TABLE IF EXISTS `genres`;
+DROP TABLE IF EXISTS `books`;
+
 CREATE TABLE `authors`
 (
     `id`         bigint(20) NOT NULL AUTO_INCREMENT,
@@ -7,7 +13,6 @@ CREATE TABLE `authors`
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
-DROP TABLE IF EXISTS `book_author`;
 CREATE TABLE `book_author`
 (
     `book_id`   bigint(20) NOT NULL,
@@ -16,7 +21,6 @@ CREATE TABLE `book_author`
     KEY `FKro54jqpth9cqm1899dnuu9lqg` (`author_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
-DROP TABLE IF EXISTS `book_genre`;
 CREATE TABLE `book_genre`
 (
     `book_id`  bigint(20) NOT NULL,
@@ -25,7 +29,6 @@ CREATE TABLE `book_genre`
     KEY `FKnkh6m50njl8771p0ll3lylqp2` (`genre_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
-DROP TABLE IF EXISTS `books`;
 CREATE TABLE `books`
 (
     `id`      bigint(20) NOT NULL AUTO_INCREMENT,
@@ -34,7 +37,6 @@ CREATE TABLE `books`
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
-DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments`
 (
     `id`         bigint(20) NOT NULL AUTO_INCREMENT,
@@ -44,7 +46,6 @@ CREATE TABLE `comments`
     KEY `FKj4uh6ap5rhoiandvo2dte065t` (`fk_book_id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
-DROP TABLE IF EXISTS `genres`;
 CREATE TABLE `genres`
 (
     `id`    bigint(20) NOT NULL AUTO_INCREMENT,

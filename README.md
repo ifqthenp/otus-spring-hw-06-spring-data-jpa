@@ -12,13 +12,19 @@
 Clone repository from GitHub:
 
 ```shell
-git clone git@github.com:ifqthenp/otus-spring-hw-05-spring-jpa
+git clone git@github.com:ifqthenp/otus-spring-hw-06-spring-data-jpa
 ```
 
 Change into the cloned folder:
 
 ```shell
-cd otus-spring-hw-05-spring-jpa
+cd otus-spring-hw-06-spring-data-jpa
+```
+
+Start MySQL database in the container:
+
+```
+docker-compose up -d
 ```
 
 Make `gradlew` script executable (or use `gradlew.bat` if running on Windows):
@@ -36,7 +42,7 @@ Build executable `jar`:
 Run the program:
 
 ```shell
-java -jar build/libs/otus-spring-hw-05-spring-jpa.jar
+java -jar build/libs/otus-spring-hw-06-spring-data-jpa-1.0.0-SNAPSHOT.jar
 ```
 
 ### Useful Docker commands

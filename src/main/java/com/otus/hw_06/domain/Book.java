@@ -21,7 +21,6 @@ public class Book {
     private String title;
 
     @ManyToMany(
-        fetch = FetchType.LAZY,
         cascade = {CascadeType.PERSIST, CascadeType.MERGE}
     )
     @JoinTable(name = "book_author",
@@ -29,9 +28,7 @@ public class Book {
         inverseJoinColumns = @JoinColumn(name = "author_id")
     )
     private final Set<Author> authors = new HashSet<>();
-
     @ManyToMany(
-        fetch = FetchType.LAZY,
         cascade = {CascadeType.PERSIST, CascadeType.MERGE}
     )
     @JoinTable(name = "book_genre",
@@ -39,15 +36,10 @@ public class Book {
         inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
     private final Set<Genre> genres = new HashSet<>();
-
-    @Column(name = "written")
-    private String year;
-
     @OneToMany(
         mappedBy = "book",
         cascade = CascadeType.ALL,
-        orphanRemoval = true,
-        fetch = FetchType.LAZY
+        orphanRemoval = true
     )
     private final List<Comment> comments = new ArrayList<>();
 

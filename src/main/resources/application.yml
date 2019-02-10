@@ -7,6 +7,6 @@ spring:
         show_sql: false
   datasource:
     initialization-mode: always
-    url: 'jdbc:mysql://localhost:3306/06_spring_data_jpa'
+    url: 'jdbc:mysql://localhost:3306/06_spring_data_jpa?useSSL=false'
     username: 'root'
     password: ''

@@ -20,6 +20,9 @@ public class Book {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "written")
+    private String year;
+
     @ManyToMany(
         cascade = {CascadeType.PERSIST, CascadeType.MERGE}
     )

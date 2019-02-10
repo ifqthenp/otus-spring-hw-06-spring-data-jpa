@@ -1,13 +1,13 @@
 package com.otus.hw_06.repository;
 
 import com.otus.hw_06.domain.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BookRepository extends CrudRepository<Book, Long> {
+public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b FROM Book b JOIN b.authors a WHERE " +
         "LOWER(CONCAT(TRIM(a.firstName), ' ' , TRIM(a.lastName))) LIKE " +
@@ -19,5 +19,7 @@ public interface BookRepository extends CrudRepository<Book, Long> {
     Iterable<Book> findBookByGenreName(@Param("gName") String genreName);
 
     Iterable<Book> findByTitleContainingIgnoreCase(String title);
+
+
 
 }

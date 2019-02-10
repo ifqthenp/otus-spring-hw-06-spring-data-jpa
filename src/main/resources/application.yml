@@ -5,6 +5,7 @@ spring:
     properties:
       hibernate:
         show_sql: false
+        format_sql: true
   datasource:
     initialization-mode: always
     url: 'jdbc:mysql://localhost:3306/06_spring_data_jpa?useSSL=false'

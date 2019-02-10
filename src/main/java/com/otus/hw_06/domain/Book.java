@@ -31,6 +31,7 @@ public class Book {
         inverseJoinColumns = @JoinColumn(name = "author_id")
     )
     private final Set<Author> authors = new HashSet<>();
+
     @ManyToMany(
         cascade = {CascadeType.PERSIST, CascadeType.MERGE}
     )
@@ -39,6 +40,7 @@ public class Book {
         inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
     private final Set<Genre> genres = new HashSet<>();
+
     @OneToMany(
         mappedBy = "book",
         cascade = CascadeType.ALL,
